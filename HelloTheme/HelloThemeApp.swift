@@ -11,7 +11,9 @@ import SwiftUI
 struct HelloThemeApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ThemeProvider {
+                ContentView()
+            }
         }
     }
 }

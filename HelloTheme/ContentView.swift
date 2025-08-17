@@ -7,18 +7,23 @@
 
 import SwiftUI
 
+// MARK: - 主视图
 struct ContentView: View {
+    @Environment(\.themeMode) private var themeMode
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            ThemePicker()
+            ThemedView()
         }
-        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(themeMode.theme.background)
     }
 }
 
+// MARK: - 预览配置
 #Preview {
-    ContentView()
+    ThemeProvider {
+        ContentView()
+    }
 }
